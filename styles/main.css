@@ -730,6 +730,52 @@ section {
   margin-top: 4px;
 }
 
+.case-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-top: 24px;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text);
+  transition: border-color 0.3s, color 0.3s, background 0.3s, transform 0.3s;
+}
+
+.case-link svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s;
+}
+
+.case-link:hover {
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+  background: rgba(34, 211, 238, 0.08);
+  transform: translateY(-2px);
+}
+
+.case-link:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.case-soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-top: 24px;
+  padding: 10px 20px;
+  border: 1px dashed var(--border);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
 .case-tag {
   font-family: var(--font-mono);
   font-size: 12px;

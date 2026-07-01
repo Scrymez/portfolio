@@ -29,6 +29,7 @@ function animateHero() {
   tl.to('.hero-badge', { opacity: 1, y: 0, duration: 0.8 })
     .to('.hero-title .line', { opacity: 1, y: 0, duration: 1, stagger: 0.12 }, '-=0.4')
     .to('.hero-sub', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
+    .to('.hero-proof', { opacity: 1, y: 0, duration: 0.8 }, '-=0.55')
     .to('.hero-actions', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5');
 }
 

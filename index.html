@@ -124,101 +124,128 @@ document.addEventListener('DOMContentLoaded', async function() {
     const faviconLink = `<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0c10'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='monospace' font-size='22' font-weight='700' fill='%2322d3ee'%3E%26gt;_%3C/text%3E%3C/svg%3E">`;
     const responsiveStyle = `<style id="mobile-responsive-patch">
 @media (max-width: 760px) {
-  html, body { width: 100% !important; max-width: 100% !important; overflow-x: hidden !important; }
-  body { font-size: 14px !important; }
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  body {
+    font-size: 14px !important;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
   header {
-    padding: 10px 14px 12px !important;
-    gap: 10px !important;
+    padding: 9px 16px 10px !important;
+    gap: 8px !important;
     align-items: flex-start !important;
     flex-wrap: wrap !important;
   }
   header > a {
     width: 100% !important;
     min-width: 0 !important;
+    gap: 8px !important;
     font-size: 12px !important;
+  }
+  header > a span:last-child {
+    display: none !important;
   }
   header nav {
     width: 100% !important;
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 8px !important;
-    align-items: stretch !important;
+    display: flex !important;
+    gap: 7px !important;
+    overflow-x: auto !important;
+    padding-bottom: 1px !important;
+    scrollbar-width: none !important;
+  }
+  header nav::-webkit-scrollbar {
+    display: none !important;
   }
   header nav > a,
   header nav > button {
     display: flex !important;
+    flex: 0 0 auto !important;
     align-items: center !important;
     justify-content: center !important;
+    width: auto !important;
     min-width: 0 !important;
-    width: 100% !important;
-    min-height: 38px !important;
-    padding: 8px 6px !important;
-    font-size: 10.5px !important;
-    line-height: 1.15 !important;
-    text-align: center !important;
-    white-space: normal !important;
-    word-break: normal !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
     border: 1px solid #1c212b !important;
-    border-radius: 6px !important;
-    background: rgba(13,16,23,.7) !important;
+    border-radius: 5px !important;
+    background: rgba(13,16,23,.78) !important;
+    color: #8b96a8 !important;
+    font-size: 10.5px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
   }
-  header nav > a:nth-of-type(4) { display: none !important; }
-  header nav > button { color: #22d3ee !important; }
+  header nav > a:nth-of-type(4),
   header nav > a:last-child {
-    grid-column: span 2 !important;
-    background: #22d3ee !important;
-    color: #06181d !important;
+    display: none !important;
+  }
+  header nav > button {
+    color: #22d3ee !important;
     font-weight: 700 !important;
   }
   section {
     padding-left: 18px !important;
     padding-right: 18px !important;
   }
+  section > div[style*="max-width:1160px"] {
+    max-width: 100% !important;
+  }
   #hero {
     min-height: auto !important;
-    padding-top: 178px !important;
-    padding-bottom: 44px !important;
+    padding-top: 108px !important;
+    padding-bottom: 38px !important;
   }
-  #hero > div[style*="max-width"] { max-width: 100% !important; }
   #hero h1 {
-    font-size: clamp(38px, 12.7vw, 56px) !important;
-    line-height: 1.02 !important;
-    letter-spacing: -.035em !important;
     max-width: 100% !important;
+    margin-bottom: 18px !important;
+    font-size: clamp(34px, 11vw, 44px) !important;
+    line-height: 1.06 !important;
   }
   #hero p {
     max-width: 100% !important;
-    font-size: 14px !important;
-    line-height: 1.65 !important;
+    margin-bottom: 20px !important;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+  #hero div[style*="font-size:13px"][style*="color:#2dd66f"] {
+    margin-bottom: 14px !important;
+    font-size: 12px !important;
   }
   #hero div[style*="display:flex"][style*="gap:10px"] {
-    gap: 8px !important;
+    gap: 7px !important;
+    margin-bottom: 24px !important;
   }
   #hero div[style*="display:flex"][style*="gap:10px"] span {
+    padding: 6px 8px !important;
     font-size: 10px !important;
-    padding: 7px 9px !important;
   }
   #hero div[style*="display:flex"][style*="gap:12px"] {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 10px !important;
+    gap: 9px !important;
     max-width: 100% !important;
   }
   #hero a[href="#cases"],
   #hero a[download],
   #hero a[href="#contact"] {
-    width: 100% !important;
-    min-height: 52px !important;
+    display: flex !important;
+    align-items: center !important;
     justify-content: center !important;
-    padding: 15px 18px !important;
+    width: 100% !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
     text-align: center !important;
-  }
-  section h2 {
-    font-size: clamp(26px, 8vw, 34px) !important;
-    line-height: 1.1 !important;
-  }
-  section > div[style*="max-width:1160px"] {
-    max-width: 100% !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
   }
   div[style*="grid-template-columns:repeat(3,1fr)"],
   div[style*="grid-template-columns:1.1fr .9fr"],
@@ -229,30 +256,40 @@ document.addEventListener('DOMContentLoaded', async function() {
   div[style*="grid-template-columns:1fr 1fr"] {
     gap: 14px !important;
   }
-  #cases {
-    padding-top: 64px !important;
-    padding-bottom: 64px !important;
+  section h2 {
+    font-size: 28px !important;
+    line-height: 1.12 !important;
+  }
+  #about,
+  #stack,
+  #cases,
+  #contact {
+    scroll-margin-top: 86px !important;
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+  #cases > div:nth-of-type(2) > div:nth-of-type(2),
+  #stack > div > div:nth-of-type(2) {
+    grid-template-columns: 1fr !important;
   }
   #cases div[style*="height:230px"] {
-    height: 205px !important;
+    height: 176px !important;
+  }
+  #cases img {
+    object-fit: contain !important;
+    object-position: center !important;
+    background: #0a0c10 !important;
   }
   #cases div[style*="padding:20px 22px"] {
-    padding: 18px 18px 20px !important;
+    padding: 16px 16px 18px !important;
   }
   #cases div[style*="font-size:18px"] {
     font-size: 17px !important;
     line-height: 1.25 !important;
   }
-  #cases > div:nth-of-type(2) > div:nth-of-type(2) {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  #stack > div > div:nth-of-type(2) {
-    grid-template-columns: 1fr !important;
-  }
-  #contact {
-    padding-top: 72px !important;
-    padding-bottom: 72px !important;
+  #cases div[style*="font-size:12px"][style*="line-height:1.65"] {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
   }
   #contact div[style*="display:flex"][style*="justify-content:center"] {
     flex-direction: column !important;
@@ -261,6 +298,8 @@ document.addEventListener('DOMContentLoaded', async function() {
   #contact a {
     width: 100% !important;
     min-width: 0 !important;
+    min-height: 66px !important;
+    padding: 16px 18px !important;
     box-sizing: border-box !important;
   }
   footer {
@@ -269,111 +308,55 @@ document.addEventListener('DOMContentLoaded', async function() {
     padding: 18px !important;
     text-align: center !important;
   }
+  div[style*="position: fixed"][style*="z-index: 300"],
   div[style*="position:fixed"][style*="z-index:300"] {
-    padding: 0 !important;
-    align-items: stretch !important;
-  }
-  div[style*="position: fixed"][style*="z-index: 300"] {
-    padding: 12px !important;
+    padding: 10px !important;
     align-items: flex-start !important;
   }
+  div[style*="width: min(1020px, 100%)"],
   div[style*="width:min(1020px,100%)"] {
     width: 100% !important;
-    max-height: 100vh !important;
-    border-radius: 0 !important;
-    border-left: 0 !important;
-    border-right: 0 !important;
-  }
-  div[style*="width: min(1020px, 100%)"] {
-    width: 100% !important;
-    max-height: calc(100vh - 24px) !important;
+    max-height: calc(100vh - 20px) !important;
     border-radius: 8px !important;
   }
-  div[style*="padding:26px 26px 30px"] {
+  div[style*="padding:26px 26px 30px"],
+  div[style*="padding: 26px 26px 30px"] {
     padding: 18px 16px 24px !important;
   }
-  div[style*="height:440px"] {
-    height: 250px !important;
-  }
-  div[style*="width:110px;height:68px"] {
-    width: 84px !important;
-    height: 54px !important;
-  }
-}
-@media (max-width: 420px) {
-  #hero { padding-top: 170px !important; }
-  header nav { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-  header nav > a:last-child { grid-column: span 1 !important; }
-  #hero h1 { font-size: clamp(34px, 12vw, 46px) !important; }
-  #hero div[style*="display:flex"][style*="gap:10px"] span {
-    flex: 1 1 calc(50% - 8px) !important;
-    text-align: center !important;
-  }
-}
-@media (max-width: 760px) {
-  header { padding: 10px 14px !important; }
-  header nav {
-    display: flex !important;
-    grid-template-columns: none !important;
-    overflow-x: auto !important;
-    gap: 8px !important;
-    padding-bottom: 2px !important;
-    scrollbar-width: none !important;
-  }
-  header nav::-webkit-scrollbar { display: none !important; }
-  header nav > a,
-  header nav > button {
-    flex: 0 0 auto !important;
-    width: auto !important;
-    min-width: auto !important;
-    height: 36px !important;
-    min-height: 36px !important;
-    padding: 0 11px !important;
-    box-sizing: border-box !important;
-    white-space: nowrap !important;
-    line-height: 1 !important;
-  }
-  header nav > a:last-child { display: none !important; grid-column: auto !important; }
-  #cases,
-  #stack,
-  #contact {
-    scroll-margin-top: 96px !important;
-  }
-  [data-reveal] {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  #hero {
-    padding-top: 132px !important;
-    padding-bottom: 42px !important;
-  }
-  #hero a[href="#cases"],
-  #hero a[download],
-  #hero a[href="#contact"] {
-    display: flex !important;
-    box-sizing: border-box !important;
-    height: 54px !important;
-    min-height: 54px !important;
-    padding: 0 18px !important;
-    line-height: 1.2 !important;
-  }
-  #cases img {
-    object-fit: contain !important;
-    background: #0a0c10 !important;
-  }
-  div[style*="padding:26px 26px 30px"] h3 {
+  div[style*="padding:26px 26px 30px"] h3,
+  div[style*="padding: 26px 26px 30px"] h3 {
     font-size: 24px !important;
-    line-height: 1.16 !important;
+    line-height: 1.15 !important;
   }
-  div[style*="height:440px"] {
-    height: 220px !important;
-  }
-  div[style*="height: 440px"],
   div[role="img"][aria-label] {
     width: 100% !important;
     height: 230px !important;
     background-position: top center !important;
     background-size: contain !important;
+  }
+  div[style*="width:110px;height:68px"],
+  div[style*="width: 110px; height: 68px"] {
+    width: 104px !important;
+    height: 64px !important;
+  }
+}
+@media (max-width: 420px) {
+  header {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+  #hero {
+    padding-top: 104px !important;
+  }
+  #hero h1 {
+    font-size: clamp(32px, 10.5vw, 40px) !important;
+  }
+  #hero div[style*="display:flex"][style*="gap:10px"] span {
+    flex: 1 1 calc(50% - 7px) !important;
+    text-align: center !important;
+  }
+  #cases div[style*="height:230px"] {
+    height: 166px !important;
   }
 }
 </style>`;
